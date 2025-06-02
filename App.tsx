@@ -11,7 +11,7 @@ export default function App() {
       
       {/* Top Icons Row */}
       <View style={styles.header}>
-        <Text style={styles.icon}>✨</Text>
+        <Text style={styles.icon}>🔍</Text>
         <Text style={styles.icon}>👤</Text>
         <Text style={styles.icon}>⚙️</Text>
       </View>
