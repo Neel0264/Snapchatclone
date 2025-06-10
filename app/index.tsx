@@ -1,81 +1,51 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
-export default function App() {
+
+export default function Home() {
   const router = useRouter();
-  const handlePress = () => {
-    router.push("newPage");
-  };
 
   return (
-    <View style={styles.screen}>
-      {/* Top Icons Row */}
-      <View style={styles.header}>
-        <Text style={styles.icon}>✨</Text>
-        <Text style={styles.icon}>👤</Text>
-        <Text style={styles.icon}>⚙️</Text>
-      </View>
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push("/Snapindex")}
+      >
+        <Text style={styles.buttonText}>Open Camera Page</Text>
+      </TouchableOpacity>
 
-      <View style={styles.cameraBox}></View>
-      <View style={styles.footer}>
-        <Text style={styles.icon}>🖼️</Text>
-        {/* Snap button with onPress alert */}
-        <TouchableOpacity onPress={handlePress} style={styles.snapCircle}>
-          <Text style={styles.text}>Stories</Text>
-        </TouchableOpacity>
-
-        <Text style={styles.icon}>📨</Text>
-      </View>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push("lab3")}
+      >
+        <Text style={styles.buttonText}>Lab 3</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: {
+  container: {
     flex: 1,
-    backgroundColor: "#000000",
-  },
-  header: {
-    marginTop: 45,
-    paddingHorizontal: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  cameraBox: {
-    flex: 1,
-    backgroundColor: "#2b2b2b",
-    borderRadius: 12,
-    marginHorizontal: 20,
-    marginVertical: 25,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#000",
   },
-  placeholderText: {
-    color: "#ffffff",
-    fontSize: 16,
+  title: {
+    color: "#fff",
+    fontSize: 24,
+    marginBottom: 40,
   },
-  footer: {
-    marginBottom: 35,
-    paddingHorizontal: 30,
-    flexDirection: "row",
-    justifyContent: "space-around",
+  button: {
+    backgroundColor: "#1e90ff",
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 20,
+    width: 220,
     alignItems: "center",
   },
-  snapCircle: {
-    width: 68,
-    height: 68,
-    borderRadius: 34,
-    backgroundColor: "#ffffff",
-  },
-  icon: {
-    fontSize: 22,
-    color: "#ffffff",
-  },
-  text: {
-    marginLeft: 10,
-    marginTop: 23,
-    fontSize: 14,
-    color: "blue",
-    fontWeight: "bold",
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
   },
 });
